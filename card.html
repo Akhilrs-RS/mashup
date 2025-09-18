@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Product Card</title>
+    <style>
+      .product-card {
+        border: 2px solid #333; /* shorthand border */
+        border-radius: 12px; /* rounded corners */
+        padding: 15px; /* shorthand padding */
+        margin: 20px auto; /* shorthand margin */
+        width: 80%; /* responsive width */
+        max-width: 350px; /* limit max size */
+        height: 400px; /* fixed height */
+        box-sizing: border-box; /* include padding in width/height */
+        text-align: center; /* center text */
+        font-family: Arial, sans-serif;
+      }
+
+      .product-card img {
+        max-width: 100%; /* responsive image */
+        min-width: 200px; /* minimum width */
+        height: auto; /* keep aspect ratio */
+        border-radius: 8px;
+      }
+
+      .product-card h2 {
+        font-size: 1.4em;
+        margin: 10px 0; /* shorthand margin */
+      }
+
+      .product-card p {
+        font-size: 1em;
+        margin: 10px 5px; /* shorthand margin */
+      }
+    </style>
+  </head>
+  <body>
+    <div class="product-card">
+      <img
+        src="https://i.dailymail.co.uk/1s/2022/02/07/20/53744391-10420405-The_winners_of_Product_of_the_Year_The_award_is_designed_to_help-m-144_1644264761276.jpg"
+        alt="Product Image"
+      />
+      <h2>Sample Product</h2>
+      <p>
+        This is a short description of the product. It highlights the key
+        features and makes it look appealing.
+      </p>
+    </div>
+  </body>
+</html>
