@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Simple Web Page</title>
+    <style>
+      /* Make first line of each paragraph bold */
+      section p::first-line {
+        font-weight: bold;
+      }
+
+      /* Make first letter red and larger */
+      section p::first-letter {
+        color: red;
+        font-size: 1.5em;
+      }
+
+      /* Container second h3 green (adjacent sibling selector) */
+      .container h3 + h3 {
+        color: green;
+      }
+
+      /* List styles */
+      div ul li:first-child a {
+        color: red; /* First link red */
+      }
+
+      /* Link styles */
+      a:link,
+      a:visited {
+        color: blue; /* Normal links blue */
+        text-decoration: none; /* No underline normally */
+      }
+
+      a:visited {
+        color: purple; /* Visited links purple */
+      }
+
+      a:hover {
+        text-decoration: underline; /* Underline only on hover */
+      }
+
+      /* Example of descendant combinator */
+      section p {
+        margin-bottom: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <section>
+      <h2>My Section</h2>
+      <p>
+        This is the first paragraph. It should have the first line bold and the
+        first letter red and larger.
+      </p>
+      <p>
+        This is the second paragraph. It also follows the same styling rules for
+        the first line and first letter.
+      </p>
+    </section>
+
+    <div class="container">
+      <h3>First Heading</h3>
+      <h3>Second Heading</h3>
+    </div>
+
+    <div>
+      <ul>
+        <li><a href="#">First Link</a></li>
+        <li><a href="#">Second Link</a></li>
+        <li><a href="#">Third Link</a></li>
+      </ul>
+    </div>
+  </body>
+</html>
