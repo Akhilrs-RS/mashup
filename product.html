@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Product Card</title>
+    <style>
+      .product-card {
+        width: 300px;
+        border: 1px solid #ddd;
+        padding: 15px;
+        margin: 20px auto;
+        text-align: left;
+        font-family: Arial, sans-serif;
+        background-color: #fff;
+        transition: background-color 0.3s;
+      }
+
+      .product-image {
+        width: 100%;
+        border: 2px solid black;
+        border-top-left-radius: 15px;
+        border-bottom-right-radius: 15px;
+      }
+
+      .product-name {
+        font-size: 20px;
+        margin: 15px 0;
+      }
+
+      .buy-button {
+        display: inline-block;
+        padding: 10px 20px;
+        background-color: #28a745;
+        color: white;
+        text-decoration: none;
+        border-radius: 5px;
+      }
+
+      /* Small screen styles */
+      @media (max-width: 600px) {
+        .product-card {
+          text-align: center;
+          font-size: 14px;
+        }
+        .product-name {
+          font-size: 16px;
+        }
+      }
+
+      /* Landscape orientation styles */
+      @media (orientation: landscape) {
+        .product-card {
+          background-color: lightblue;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="product-card">
+      <img
+        src="https://www.stratstone.com/-/media/stratstone/blog/2024/top-10-best-supercars-of-2024/mclaren-750s-driving-dynamic-hero-1920x774px.ashx"
+        alt="Product"
+        class="product-image"
+      />
+      <h2 class="product-name">Sample Product</h2>
+      <a href="#" class="buy-button">Buy Now</a>
+    </div>
+  </body>
+</html>

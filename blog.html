@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Simple Blog Post</title>
+    <style>
+      /* Blog container */
+      .blog-post {
+        width: 60%;
+        margin: 20px auto;
+        padding: 20px;
+        border: 1px solid #ccc;
+        background: #f9f9f9;
+        font-family: Arial, sans-serif;
+      }
+
+      /* Blog title */
+      .blog-post h2 {
+        margin-bottom: 5px;
+      }
+
+      /* Author */
+      .blog-post .author {
+        font-size: 0.9em;
+        color: #555;
+        margin-bottom: 15px;
+      }
+
+      /* Paragraph styling */
+      .blog-post p::first-line {
+        font-weight: bold;
+      }
+      .blog-post p::first-letter {
+        font-size: 1.8em;
+        color: darkred;
+      }
+
+      /* Quote with ::before pseudo-element */
+      blockquote {
+        margin: 15px 0;
+        padding: 10px 15px;
+        background: #eee;
+        border-left: 4px solid #666;
+        font-style: italic;
+      }
+      blockquote::before {
+        content: "“";
+        font-size: 2em;
+        color: #666;
+        margin-right: 5px;
+      }
+
+      /* Link styles */
+      a:link {
+        color: blue;
+        text-decoration: none;
+      }
+      a:visited {
+        color: purple;
+      }
+      a:hover {
+        text-decoration: underline;
+        color: darkblue;
+      }
+
+      /* Two h4 side by side */
+      .headings h4 {
+        display: inline-block;
+        margin-right: 20px;
+      }
+
+      /* Adjacent sibling selector (second h4) */
+      .headings h4 + h4 {
+        color: green;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="blog-post">
+      <h2>My First Blog Post</h2>
+      <div class="author">By John Doe</div>
+
+      <p>
+        This is the opening paragraph of the blog post. It demonstrates how the
+        first line is bold and the first letter is styled differently. You can
+        also include <a href="#">links</a> inside your content.
+      </p>
+
+      <blockquote>
+        Blogging is not just about writing, it’s about sharing ideas.
+      </blockquote>
+
+      <p>
+        This is another paragraph of the blog post where styles continue to
+        apply. Readers can enjoy both text and formatting enhancements.
+      </p>
+
+      <div class="headings">
+        <h4>Subheading One</h4>
+        <h4>Subheading Two</h4>
+      </div>
+    </div>
+  </body>
+</html>
