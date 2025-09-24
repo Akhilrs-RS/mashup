@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Featured Blog Section</title>
+    <style>
+      .blog-section {
+        display: flex;
+        gap: 20px;
+        padding: 20px;
+        font-family: Arial, sans-serif;
+        background-color: #f9f9f9;
+      }
+
+      .blog-post {
+        flex: 1;
+        border: 1px solid #ccc;
+        padding: 15px;
+        background: #fff;
+      }
+
+      .blog-post h3 {
+        margin: 10px 0;
+      }
+
+      .blog-post img[src$=".jpg"] {
+        width: 100%;
+        border-top-right-radius: 15px;
+        border-bottom-left-radius: 15px;
+      }
+
+      /* Highlight only https links */
+      .blog-post a[href^="https"] {
+        color: red;
+        text-decoration: none;
+        font-weight: bold;
+      }
+
+      /* Small screens: stack vertically and reduce font size */
+      @media (max-width: 600px) {
+        .blog-section {
+          flex-direction: column;
+          font-size: 14px;
+        }
+      }
+
+      /* Portrait orientation */
+      @media (orientation: portrait) {
+        .blog-section {
+          background-color: lightyellow;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <section class="blog-section">
+      <div class="blog-post">
+        <img src="https://via.placeholder.com/300x200.jpg" alt="Blog 1" />
+        <h3>Blog Post One</h3>
+        <a href="https://example.com/blog1">Read More</a>
+      </div>
+
+      <div class="blog-post">
+        <img src="https://via.placeholder.com/300x200.png" alt="Blog 2" />
+        <h3>Blog Post Two</h3>
+        <a href="http://example.com/blog2">Read More</a>
+      </div>
+
+      <div class="blog-post">
+        <img src="https://via.placeholder.com/300x200.jpg" alt="Blog 3" />
+        <h3>Blog Post Three</h3>
+        <a href="https://example.com/blog3">Read More</a>
+      </div>
+    </section>
+  </body>
+</html>
