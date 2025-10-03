@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Team Profile</title>
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      .team-photo {
+        width: 200px;
+        height: 200px;
+        object-fit: cover;
+        border-radius: 50%;
+        margin: 20px auto;
+        display: block;
+        border: 4px solid #0d6efd;
+      }
+      .status-active {
+        color: green;
+        font-weight: bold;
+      }
+      .status-leave {
+        color: orange;
+        font-weight: bold;
+      }
+      .status-resigned {
+        color: red;
+        font-weight: bold;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container py-5">
+      <!-- Heading -->
+      <div class="text-center mb-4">
+        <h1 class="display-4">Our Team</h1>
+        <h4 class="text-muted">Fictional Company Pvt. Ltd.</h4>
+      </div>
+
+      <!-- Team Quote -->
+      <blockquote class="blockquote text-center">
+        <p class="mb-0">
+          “Coming together is a beginning. Keeping together is progress. Working
+          together is success.”
+        </p>
+        <footer class="blockquote-footer">Henry Ford</footer>
+      </blockquote>
+
+      <!-- Team Values -->
+      <div class="mt-5">
+        <h3>Our Core Values</h3>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">Collaboration</li>
+          <li class="list-group-item">Integrity</li>
+          <li class="list-group-item">Innovation</li>
+        </ul>
+      </div>
+
+      <!-- Team Photo -->
+      <div class="text-center">
+        <img
+          src="https://img.freepik.com/free-vector/people-working-as-team-background-flat-style_23-2147767891.jpg"
+          alt="Team Photo"
+          class="team-photo shadow"
+        />
+      </div>
+
+      <!-- Employee Table -->
+      <div class="mt-5">
+        <h3>Team Members</h3>
+        <table class="table table-striped table-hover text-center align-middle">
+          <thead class="table-dark">
+            <tr>
+              <th>Name</th>
+              <th>Role</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Alice Johnson</td>
+              <td>Project Manager</td>
+              <td class="status-active">Active</td>
+            </tr>
+            <tr>
+              <td>Brian Smith</td>
+              <td>Developer</td>
+              <td class="status-leave">On Leave</td>
+            </tr>
+            <tr>
+              <td>Clara Williams</td>
+              <td>Designer</td>
+              <td class="status-resigned">Resigned</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Warning Alert -->
+      <div class="alert alert-warning mt-4" role="alert">
+        ⚠️ Some employees are not currently active!
+      </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>
