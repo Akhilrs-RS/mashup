@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Signup Form</title>
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+    />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+  </head>
+  <body>
+    <div
+      class="container-fluid bg-primary justify-content-center align-items-center d-flex flex-column vh-100"
+    >
+      <div class="card bg-white w-lg-50 h-lg-75 mt-4">
+        <div class="card-body pb-5 pt-4 px-5">
+          <h1 class="card-title">Sign Up</h1>
+          <p class="text-muted mb-4">
+            Please fill in this form to create an account!
+          </p>
+          <form>
+            <div class="row">
+              <div class="col-lg-6 col-sm-12 form-group">
+                <input
+                  type="text"
+                  name="firt name"
+                  class="form-control border-0 bg-light"
+                  placeholder="First Name"
+                />
+              </div>
+              <div class="col-lg-6 col-sm-12 form-group">
+                <input
+                  type="text"
+                  name="Last name"
+                  class="form-control border-0 bg-light"
+                  placeholder="Last Name"
+                />
+              </div>
+            </div>
+            <div class="row mb-3">
+              <div class="col">
+                <input
+                  type="email"
+                  name="email"
+                  class="form-control border-0 bg-light"
+                  placeholder="Email"
+                />
+              </div>
+            </div>
+            <div class="row mb-3">
+              <div class="col">
+                <input
+                  type="password"
+                  name="password"
+                  class="form-control border-0 bg-light"
+                  placeholder="Password"
+                />
+              </div>
+            </div>
+            <div class="row mb-3">
+              <div class="col">
+                <input
+                  type="password"
+                  name="confpass"
+                  class="form-control border-0 bg-light"
+                  placeholder="Confirm Password"
+                />
+              </div>
+            </div>
+            <div class="row">
+              <div class="col">
+                <div class="form-check">
+                  <label class="form-check-label text-muted"
+                    ><input
+                      type="checkbox"
+                      name="check"
+                      class="form-check-input"
+                      value=""
+                    />I accept the <a href="#">Terms of Use</a> &
+                    <a href="#">Privacy Policy</a></label
+                  >
+                </div>
+              </div>
+            </div>
+            <button class="btn btn-primary text-center px-5 text-white mt-3">
+              <b>Sign Up</b>
+            </button>
+          </form>
+        </div>
+      </div>
+      <p class="text-align-center text-white mt-2">
+        Already have an account?
+        <span
+          ><a class="text-white" style="text-decoration: underline" href=""
+            >login here</a
+          ></span
+        >
+      </p>
+    </div>
+  </body>
+</html>
