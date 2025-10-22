@@ -1,0 +1,10 @@
+// Create the first contact object const contact1 = { name: "Akhil R S", phone:
+"9876543210", email: "akhil@example.com", // Method to get all contact info
+getInfo: function() { return `Name: ${this.name}, Phone: ${this.phone}, Email:
+${this.email}`; } }; // Create the second contact object const contact2 = {
+name: "Rahul Kumar", phone: "9123456789", email: "rahul@example.com", // Method
+to get all contact info getInfo: function() { return `Name: ${this.name}, Phone:
+${this.phone}, Email: ${this.email}`; } }; // Function to print contact info
+function printContactInfo(contact) { console.log(contact.getInfo()); } // Call
+the function for both contacts printContactInfo(contact1);
+printContactInfo(contact2);
