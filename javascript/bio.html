@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Clean User Bio Helper</title>
+    <style>
+      body {
+        font-family: system-ui, Arial;
+        padding: 20px;
+      }
+      pre {
+        background: #f5f5f5;
+        padding: 12px;
+        border-radius: 6px;
+      }
+      .box {
+        margin-top: 12px;
+      }
+      button {
+        padding: 8px 12px;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>User Bio Cleaner — Demo</h2>
+
+    <div>
+      <strong>Original profile (example):</strong>
+      <pre id="original"></pre>
+    </div>
+
+    <div class="box">
+      <button id="runBtn">Clean bio and show result</button>
+    </div>
+
+    <div class="box">
+      <strong>Cleaned result:</strong>
+      <pre id="result"></pre>
+    </div>
+
+    <script>
+      // Example user profile as requested
+      const userProfile = {
+        username: " CoolUser99 ",
+        bio: " I LOVE coding! JavaScript is Great!!! ",
+      };
+
+      // Function that cleans a profile
+      function cleanUserBio(profile) {
+        // Make shallow copy to avoid mutating original
+        const copy = {
+          username: profile.username,
+          bio: profile.bio,
+        };
+
+        // Trim and convert to lowercase
+        const cleanedUsername = copy.username.trim().toLowerCase();
+        let cleanedBio = copy.bio.trim().toLowerCase();
+
+        // Replace all occurrences of "javascript" with "JS"
+        // Since we've lowercased the bio, we can safely replace "javascript"
+        // Use global regex to replace all occurrences
+        cleanedBio = cleanedBio.replace(/javascript/g, "JS");
+
+        // Count number of characters in cleaned bio
+        const bioLength = cleanedBio.length;
+
+        // Return a new object with cleaned username, cleaned bio, and length
+        return {
+          cleanedUsername,
+          cleanedBio,
+          bioLength,
+        };
+      }
+
+      // Utility to pretty-print objects in page and console
+      function showResult(obj) {
+        document.getElementById("original").textContent = JSON.stringify(
+          userProfile,
+          null,
+          2
+        );
+        document.getElementById("result").textContent = JSON.stringify(
+          obj,
+          null,
+          2
+        );
+        console.log("Cleaned profile result:", obj);
+      }
+
+      // Wire up button to run cleaning
+      document.getElementById("runBtn").addEventListener("click", () => {
+        const cleaned = cleanUserBio(userProfile);
+        showResult(cleaned);
+      });
+
+      // Optionally run once on load
+      // const cleanedOnLoad = cleanUserBio(userProfile);
+      // showResult(cleanedOnLoad);
+    </script>
+  </body>
+</html>
