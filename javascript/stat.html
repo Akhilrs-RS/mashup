@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Statistics Widget</title>
+  </head>
+  <body>
+    <h2>📊 Simple Statistics Widget</h2>
+
+    <button onclick="showStats()">Generate Stats</button>
+
+    <h3>Results:</h3>
+    <pre id="output"></pre>
+
+    <script>
+      function showStats() {
+        // 1️⃣ Generate a random whole number between 1 and 100
+        const randomNum = Math.floor(Math.random() * 100) + 1;
+
+        // 2️⃣ Simulate a user score as a string
+        const userScoreStr = "75";
+
+        // 3️⃣ Convert user score string to number (type conversion)
+        const userScore = Number(userScoreStr);
+
+        // 4️⃣ Show the difference between random number and user score
+        const difference = Math.abs(randomNum - userScore);
+
+        // 5️⃣ Show the rounded square root of the user score
+        const sqrtRounded = Math.round(Math.sqrt(userScore));
+
+        // 6️⃣ Show the π constant (pi)
+        const piValue = Math.PI;
+
+        // 7️⃣ Implicit conversion: convert "50" to number and multiply by 2
+        const implicitResult = "50" * 2;
+
+        // Display all results
+        const resultText = `
+🎲 Random Number: ${randomNum}
+🎯 User Score (string): "${userScoreStr}"
+🔢 Converted User Score: ${userScore}
+📏 Difference: ${difference}
+🧮 Rounded √User Score: ${sqrtRounded}
+π (Pi Constant): ${piValue.toFixed(5)}
+💡 "50" * 2 = ${implicitResult} (implicit conversion)
+      `;
+
+        document.getElementById("output").textContent = resultText;
+      }
+    </script>
+  </body>
+</html>
