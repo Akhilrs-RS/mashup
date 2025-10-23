@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Game Result Generator</title>
+  </head>
+  <body>
+    <h2>🎮 Simple Game Result Generator</h2>
+
+    <label for="userScore">Enter your score (1–50): </label>
+    <input type="text" id="userScore" placeholder="e.g. 45" />
+    <button onclick="generateResult()">Show Result</button>
+
+    <h3>Results:</h3>
+    <pre id="output"></pre>
+
+    <script>
+      function generateResult() {
+        // 1️⃣ Random number between 1 and 50 (mystery level)
+        const mysteryLevel = Math.floor(Math.random() * 50) + 1;
+
+        // 2️⃣ Get user input score (as string) and convert to number
+        const userInput = document.getElementById("userScore").value;
+        const userScore = Number(userInput);
+
+        // 3️⃣ Show absolute difference
+        const difference = Math.abs(mysteryLevel - userScore);
+
+        // 4️⃣ Calculate square root of user's score
+        const squareRoot = Math.sqrt(userScore);
+
+        // 5️⃣ Log value of Pi using Math.PI
+        const piValue = Math.PI;
+
+        // 6️⃣ Implicit conversion: multiply string "20" by 5
+        const implicitResult = "20" * 5;
+
+        // 7️⃣ Math.max() and Math.min() among 10, 20, and mysteryLevel
+        const highest = Math.max(10, 20, mysteryLevel);
+        const lowest = Math.min(10, 20, mysteryLevel);
+
+        // Display all results
+        const resultText = `
+🕵️ Mystery Level: ${mysteryLevel}
+🎯 Your Score: ${userScore}
+📏 Difference: ${difference}
+🧮 Square Root of Your Score: ${squareRoot.toFixed(2)}
+🔢 Value of Pi: ${piValue.toFixed(5)}
+💡 "20" * 5 = ${implicitResult} (implicit conversion)
+⬆️ Highest Value: ${highest}
+⬇️ Lowest Value: ${lowest}
+      `;
+
+        document.getElementById("output").textContent = resultText;
+      }
+    </script>
+  </body>
+</html>
