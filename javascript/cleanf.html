@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Feedback Processor</title>
+  </head>
+  <body>
+    <h2>💬 Feedback Cleaner</h2>
+
+    <button onclick="processFeedback()">Clean Feedback</button>
+
+    <h3>Results:</h3>
+    <pre id="output"></pre>
+
+    <script>
+      function processFeedback() {
+        // Original feedback string
+        var feedback = "   I loved the FOOD and the service!   ";
+
+        // 1️⃣ Remove extra spaces at beginning and end
+        var trimmedFeedback = feedback.trim();
+
+        // 2️⃣ Convert entire string to lowercase
+        var lowerFeedback = trimmedFeedback.toLowerCase();
+
+        // 3️⃣ Replace the word "food" with "ambience"
+        var replacedFeedback = lowerFeedback.replace("food", "ambience");
+
+        // 4️⃣ Find and print the position of the word "service"
+        var positionOfService = replacedFeedback.indexOf("service");
+
+        // 5️⃣ Convert the string to an array of words
+        var feedbackArray = replacedFeedback.split(" ");
+
+        // Display results
+        var resultText = `
+📝 Original: "${feedback}"
+✅ Trimmed: "${trimmedFeedback}"
+🔡 Lowercase: "${lowerFeedback}"
+🔁 Replaced: "${replacedFeedback}"
+📍 Position of "service": ${positionOfService}
+🧩 Array of Words: [${feedbackArray.join(", ")}]
+      `;
+
+        document.getElementById("output").textContent = resultText;
+      }
+    </script>
+  </body>
+</html>
