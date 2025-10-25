@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>User Profile Access Check</title>
+  </head>
+  <body>
+    <h2>User Profile</h2>
+    <p><strong>Name:</strong> John Doe</p>
+    <p><strong>Age:</strong> 22</p>
+    <p><strong>Admin:</strong> true</p>
+
+    <button onclick="checkAccess()">Check Admin Access</button>
+
+    <p id="result"></p>
+
+    <script>
+      // Step 1: Store user details
+      const user = {
+        name: "John Doe",
+        age: 22,
+        isAdmin: true,
+      };
+
+      function checkAccess() {
+        const resultElement = document.getElementById("result");
+
+        // Step 2: Check if 'age' property exists using 'in' operator
+        if ("age" in user) {
+          console.log("Age property exists in user object.");
+        } else {
+          console.log("Age property does not exist in user object.");
+        }
+
+        // Step 3: Check admin access using conditional (ternary) operator
+        const accessMessage =
+          user.age >= 18 && user.isAdmin
+            ? "Access Granted ✅"
+            : "Access Denied ❌";
+
+        // Display result on the webpage
+        resultElement.textContent = accessMessage;
+
+        // Step 4: Delete the 'age' property after checking
+        delete user.age;
+
+        // Verify deletion in console
+        console.log("User object after deleting age:", user);
+      }
+    </script>
+  </body>
+</html>

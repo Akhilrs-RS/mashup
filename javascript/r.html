@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Item Return Page</title>
+  </head>
+  <body>
+    <h2>Online Store - Return Eligibility Check</h2>
+    <p><strong>Item Name:</strong> Wireless Headphones</p>
+    <p><strong>Delivered:</strong> true</p>
+    <p><strong>Days Since Delivery:</strong> 5</p>
+
+    <button onclick="checkReturn()">Check Return Eligibility</button>
+
+    <p id="result"></p>
+
+    <script>
+      function checkReturn() {
+        // Step 1: Create the order object
+        const order = {
+          itemName: "Wireless Headphones",
+          isDelivered: true,
+          daysSinceDelivery: 5,
+        };
+
+        // Step 2: Check if 'itemName' exists using 'in' operator
+        if ("itemName" in order) {
+          console.log("✅ 'itemName' property exists in order object.");
+        } else {
+          console.log("❌ 'itemName' property does not exist.");
+        }
+
+        // Step 3: Use ternary operator to determine eligibility (no if-else)
+        const message =
+          order.isDelivered && order.daysSinceDelivery <= 7
+            ? "✅ Eligible for Return"
+            : "❌ Return Period Expired";
+
+        // Step 4: Display result
+        document.getElementById("result").textContent = message;
+
+        // Step 5: Delete the 'daysSinceDelivery' property
+        delete order.daysSinceDelivery;
+
+        // Log the updated object
+        console.log("Order object after deleting daysSinceDelivery:", order);
+      }
+    </script>
+  </body>
+</html>
