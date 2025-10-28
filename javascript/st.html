@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>🛒 Grocery Store Product Listing</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background: #f5f8fc;
+        margin: 30px;
+      }
+      h1 {
+        text-align: center;
+        color: #333;
+      }
+      .box {
+        background: #fff;
+        padding: 15px 25px;
+        border-radius: 8px;
+        margin-bottom: 15px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      }
+      pre {
+        background: #f1f3f5;
+        padding: 10px;
+        border-radius: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>🛍️ Grocery Store Product Listing</h1>
+
+    <div class="box">
+      <h3>All Products:</h3>
+      <pre id="allProducts"></pre>
+    </div>
+
+    <div class="box">
+      <h3>Products with Price > 50:</h3>
+      <pre id="filteredProducts"></pre>
+    </div>
+
+    <div class="box">
+      <h3>After Adding New Product (Watermelon - ₹80):</h3>
+      <pre id="updatedProducts"></pre>
+    </div>
+
+    <script>
+      // Step 1: Arrays of products and prices
+      const productNames = ["Apple", "Banana", "Mango", "Grapes", "Orange"];
+      const productPrices = [50, 20, 60, 45, 70];
+
+      // Step 2: Merge names and prices into one formatted array
+      let productList = productNames.map((product, index) => {
+        return `Product: ${product} - Price: ${productPrices[index]}`;
+      });
+
+      // Display all products using a loop
+      let allProductsText = "";
+      for (let i = 0; i < productList.length; i++) {
+        allProductsText += productList[i] + "\n";
+      }
+      document.getElementById("allProducts").textContent = allProductsText;
+
+      // Step 3: Filter products with price > 50
+      let filtered = [];
+      for (let i = 0; i < productPrices.length; i++) {
+        if (productPrices[i] > 50) {
+          filtered.push(
+            `Product: ${productNames[i]} - Price: ${productPrices[i]}`
+          );
+        }
+      }
+      document.getElementById("filteredProducts").textContent =
+        filtered.join("\n");
+
+      // Step 4: Add new product and display updated list
+      productNames.push("Watermelon");
+      productPrices.push(80);
+
+      let updatedList = productNames.map((product, index) => {
+        return `Product: ${product} - Price: ${productPrices[index]}`;
+      });
+
+      document.getElementById("updatedProducts").textContent =
+        updatedList.join("\n");
+    </script>
+  </body>
+</html>
