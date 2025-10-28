@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Student Result Dashboard</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background: #f0f4f8;
+        padding: 20px;
+      }
+      h1 {
+        text-align: center;
+        color: #333;
+      }
+      .result-box {
+        background: #fff;
+        padding: 15px 25px;
+        border-radius: 8px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        margin-bottom: 15px;
+      }
+      pre {
+        background: #f8f9fa;
+        padding: 10px;
+        border-radius: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>🎓 Student Result Dashboard</h1>
+
+    <div class="result-box">
+      <h3>All Student Names:</h3>
+      <pre id="allNames"></pre>
+    </div>
+
+    <div class="result-box">
+      <h3>Students Scoring Above 60:</h3>
+      <pre id="above60"></pre>
+    </div>
+
+    <div class="result-box">
+      <h3>Total Score of All Students:</h3>
+      <pre id="totalScore"></pre>
+    </div>
+
+    <div class="result-box">
+      <h3>Did All Students Pass? (score > 35)</h3>
+      <pre id="allPassed"></pre>
+    </div>
+
+    <div class="result-box">
+      <h3>Any Student Scored Above 90?</h3>
+      <pre id="above90"></pre>
+    </div>
+
+    <div class="result-box">
+      <h3>Students Sorted by Score (High → Low):</h3>
+      <pre id="sortedList"></pre>
+    </div>
+
+    <script>
+      // Array of student objects
+      const students = [
+        { name: "Akhil", score: 75 },
+        { name: "Sneha", score: 92 },
+        { name: "Rahul", score: 45 },
+        { name: "Meera", score: 88 },
+        { name: "Vijay", score: 30 },
+      ];
+
+      // 1. List all student names
+      const allNames = students.map((s) => s.name);
+
+      // 2. New array of names of students scoring > 60
+      const above60 = students.filter((s) => s.score > 60).map((s) => s.name);
+
+      // 3. Total score of all students
+      const totalScore = students.reduce((sum, s) => sum + s.score, 0);
+
+      // 4. Check if all students passed (score > 35)
+      const allPassed = students.every((s) => s.score > 35);
+
+      // 5. Check if at least one student scored > 90
+      const above90 = students.some((s) => s.score > 90);
+
+      // 6. Sort students by score (descending)
+      const sortedStudents = [...students].sort((a, b) => b.score - a.score);
+
+      // Display results
+      document.getElementById("allNames").textContent = allNames.join(", ");
+      document.getElementById("above60").textContent = above60.join(", ");
+      document.getElementById("totalScore").textContent = totalScore;
+      document.getElementById("allPassed").textContent = allPassed
+        ? "✅ Yes"
+        : "❌ No";
+      document.getElementById("above90").textContent = above90
+        ? "✅ Yes"
+        : "❌ No";
+
+      document.getElementById("sortedList").textContent = sortedStudents
+        .map((s) => `${s.name} - ${s.score}`)
+        .join("\n");
+    </script>
+  </body>
+</html>
