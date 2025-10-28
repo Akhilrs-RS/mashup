@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>📅 Simple Event Reminder Tool</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background: #f7fbff;
+        padding: 30px;
+      }
+      h1 {
+        text-align: center;
+        color: #2c3e50;
+      }
+      .container {
+        background: #fff;
+        max-width: 500px;
+        margin: 0 auto;
+        padding: 25px;
+        border-radius: 8px;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+      }
+      label,
+      input,
+      button {
+        display: block;
+        width: 100%;
+        margin-bottom: 10px;
+      }
+      input,
+      button {
+        padding: 10px;
+        font-size: 16px;
+      }
+      button {
+        background: #3498db;
+        color: white;
+        border: none;
+        cursor: pointer;
+        border-radius: 4px;
+      }
+      button:hover {
+        background: #2980b9;
+      }
+      .result {
+        background: #f4f6f8;
+        padding: 15px;
+        border-radius: 6px;
+        margin-top: 15px;
+      }
+      .highlight {
+        color: #27ae60;
+        font-weight: bold;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>🎈 Event Reminder Tool</h1>
+
+    <div class="container">
+      <label for="eventDate"
+        >Enter a past date (e.g., your last birthday):</label
+      >
+      <input type="date" id="eventDate" />
+
+      <button onclick="showEventDetails()">Show Details</button>
+
+      <div class="result" id="output"></div>
+    </div>
+
+    <script>
+      function showEventDetails() {
+        const dateInput = document.getElementById("eventDate").value;
+
+        if (!dateInput) {
+          document.getElementById("output").innerHTML =
+            "<span style='color:red;'>Please select a date!</span>";
+          return;
+        }
+
+        // Convert input to Date object
+        const eventDate = new Date(dateInput);
+        const year = eventDate.getFullYear();
+        const monthName = eventDate.toLocaleString("default", {
+          month: "long",
+        });
+        const day = eventDate.getDate();
+
+        // Calculate full years passed
+        const today = new Date();
+        let yearsPassed = today.getFullYear() - year;
+
+        // Adjust if the anniversary hasn't happened yet this year
+        const hasAnniversaryPassed =
+          today.getMonth() > eventDate.getMonth() ||
+          (today.getMonth() === eventDate.getMonth() &&
+            today.getDate() >= eventDate.getDate());
+
+        if (!hasAnniversaryPassed) {
+          yearsPassed -= 1;
+        }
+
+        // Custom message
+        let message = "";
+        if (yearsPassed >= 1) {
+          message = `<span class="highlight">It has been more than a year since that date.</span>`;
+        } else {
+          message = `<span class="highlight">It has been less than a year since that date.</span>`;
+        }
+
+        // Display results
+        document.getElementById("output").innerHTML = `
+        <p><b>Date:</b> ${day} ${monthName}, ${year}</p>
+        <p><b>Full Years Passed:</b> ${yearsPassed}</p>
+        <p>${message}</p>
+      `;
+      }
+    </script>
+  </body>
+</html>

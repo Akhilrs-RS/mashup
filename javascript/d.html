@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>🎂 Friend Birthday Tracker</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background: #f7faff;
+        padding: 25px;
+      }
+      h1 {
+        text-align: center;
+        color: #333;
+      }
+      .box {
+        background: #fff;
+        padding: 20px;
+        border-radius: 8px;
+        margin: 20px auto;
+        max-width: 500px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      }
+      pre {
+        background: #f2f4f8;
+        padding: 10px;
+        border-radius: 5px;
+        font-size: 16px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>🎉 Friend Birthday Tracker</h1>
+
+    <div class="box">
+      <h3>Birthday Details:</h3>
+      <pre id="output"></pre>
+    </div>
+
+    <script>
+      // Step 1: Create an object named 'friend' with name and birthDate
+      const friend = {
+        name: "John",
+        birthDate: "1999-07-05", // YYYY-MM-DD format
+      };
+
+      // Step 2: Function to get birthday details
+      function getBirthdayDetails(person) {
+        // Convert birthDate string into a Date object
+        const birthDateObj = new Date(person.birthDate);
+
+        // Extract year, month name, and day
+        const year = birthDateObj.getFullYear();
+        const monthName = birthDateObj.toLocaleString("default", {
+          month: "long",
+        });
+        const day = birthDateObj.getDate();
+
+        // Calculate age as of today
+        const today = new Date();
+        let age = today.getFullYear() - year;
+
+        // Check if birthday has not occurred yet this year
+        const hasBirthdayPassed =
+          today.getMonth() > birthDateObj.getMonth() ||
+          (today.getMonth() === birthDateObj.getMonth() &&
+            today.getDate() >= birthDateObj.getDate());
+
+        if (!hasBirthdayPassed) {
+          age -= 1;
+        }
+
+        // Display formatted result
+        return `${person.name} was born on ${day} ${monthName}, ${year} and is ${age} years old.`;
+      }
+
+      // Step 3: Display the output
+      document.getElementById("output").textContent =
+        getBirthdayDetails(friend);
+    </script>
+  </body>
+</html>
