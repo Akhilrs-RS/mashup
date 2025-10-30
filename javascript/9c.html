@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>User Comment Number Filter</title>
+  </head>
+  <body>
+    <h2>User Comment System</h2>
+
+    <p id="original"></p>
+    <p id="found"></p>
+    <p id="updated"></p>
+
+    <script>
+      // Test comment
+      var comment =
+        "My son is 12 years old. Our flat number is 45 and contact is 9876543210.";
+
+      // Regular expression to detect digits
+      var hasNumber = /\d/.test(comment);
+
+      // Replace all numbers with the word "NUMBER"
+      var updatedComment = comment.replace(/\d+/g, "NUMBER");
+
+      // Display results
+      document.getElementById("original").textContent =
+        "Original Comment: " + comment;
+      document.getElementById("found").textContent =
+        "Contains Number: " + hasNumber;
+      document.getElementById("updated").textContent =
+        "Updated Comment: " + updatedComment;
+    </script>
+  </body>
+</html>

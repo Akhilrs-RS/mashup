@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Blog Comment Filter</title>
+  </head>
+  <body>
+    <h2>Blog Comment Filter System</h2>
+    <p id="original"></p>
+    <p id="cleaned"></p>
+    <p id="numbers"></p>
+    <p id="capitalWords"></p>
+
+    <script>
+      // Test comment
+      var comment =
+        "I think this movie was BAD and 100% Stupid! But the Acting was Amazing and 3 actors were great.";
+
+      // Step 1: Replace banned words (bad, ugly, stupid) with ***
+      var cleanedComment = comment.replace(/\b(bad|ugly|stupid)\b/gi, "***");
+
+      // Step 2: Count how many numbers are mentioned
+      var numberMatches = comment.match(/\d+/g);
+      var numberCount = numberMatches ? numberMatches.length : 0;
+
+      // Step 3: Count how many words begin with a capital letter
+      var capitalWordMatches = comment.match(/\b[A-Z][a-zA-Z]*\b/g);
+      var capitalWordCount = capitalWordMatches ? capitalWordMatches.length : 0;
+
+      // Display results
+      document.getElementById("original").textContent =
+        "Original Comment: " + comment;
+      document.getElementById("cleaned").textContent =
+        "Cleaned Comment: " + cleanedComment;
+      document.getElementById("numbers").textContent =
+        "Number of Numbers Mentioned: " + numberCount;
+      document.getElementById("capitalWords").textContent =
+        "Words Starting with Capital Letter: " + capitalWordCount;
+    </script>
+  </body>
+</html>
