@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Number Guessing Game</title>
+  </head>
+  <body>
+    <h2>Simple Number Guessing Game</h2>
+    <button onclick="startGame()">Start Game</button>
+    <div id="result"></div>
+
+    <script>
+      function startGame() {
+        let message = "";
+        let attempts = 0;
+        const correctNumber = 3;
+
+        while (attempts < 5) {
+          let num = parseInt(prompt("Enter a number between 1 and 5:"));
+
+          // Check for invalid input
+          if (num < 1 || num > 5 || isNaN(num)) {
+            alert("Invalid input!");
+            continue; // Skip this chance
+          }
+
+          attempts++;
+
+          // Convert number to word using switch
+          let word = "";
+          switch (num) {
+            case 1:
+              word = "One";
+              break;
+            case 2:
+              word = "Two";
+              break;
+            case 3:
+              word = "Three";
+              break;
+            case 4:
+              word = "Four";
+              break;
+            case 5:
+              word = "Five";
+              break;
+          }
+
+          message += `<p>You entered: <strong>${word}</strong></p>`;
+
+          // Check if guessed correctly
+          if (num === correctNumber) {
+            message += `<p><strong>You guessed it right!</strong></p>`;
+            break; // Stop the game
+          } else {
+            message += `<p>Wrong guess. Try again.</p>`;
+          }
+        }
+
+        // If player failed after all valid attempts
+        if (attempts === 5) {
+          message += `<p><strong>Game over!</strong></p>`;
+        }
+
+        document.getElementById("result").innerHTML = message;
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Grocery Store Calculator</title>
+  </head>
+  <body>
+    <h2>Grocery Store Calculator</h2>
+    <button onclick="calculateBill()">Start Purchase</button>
+    <div id="output"></div>
+
+    <script>
+      function calculateBill() {
+        let output = "";
+        let count = 0;
+
+        while (count < 5) {
+          let code = parseInt(prompt("Enter product code (1-3):"));
+          let quantity = parseInt(prompt("Enter quantity:"));
+          let total = 0;
+          let product = "";
+
+          switch (code) {
+            case 1:
+              product = "Apple";
+              total = 30 * quantity;
+              break;
+            case 2:
+              product = "Banana";
+              total = 10 * quantity;
+              break;
+            case 3:
+              product = "Mango";
+              total = 50 * quantity;
+              break;
+            default:
+              alert("Invalid product code! Skipping...");
+              continue; // Skip to next iteration
+          }
+
+          output += `<p><strong>Product:</strong> ${product}<br>
+                   <strong>Quantity:</strong> ${quantity}<br>
+                   <strong>Total Price:</strong> ₹${total}<br>`;
+
+          if (total > 100) {
+            output += `<em>High purchase</em></p>`;
+          } else {
+            output += `<em>Normal purchase</em></p>`;
+          }
+
+          count++;
+        }
+
+        document.getElementById("output").innerHTML = output;
+      }
+    </script>
+  </body>
+</html>
