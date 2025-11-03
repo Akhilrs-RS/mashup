@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>JSON → JS Object → Print Message</title>
+  </head>
+  <body>
+    <h3>JSON → JS Object example</h3>
+    <p>
+      Open the browser console (F12) and click "Run". You can edit the JSON in
+      the textarea to test broken/valid JSON.
+    </p>
+
+    <textarea id="jsonInput" rows="6" cols="70">
+{"name":"Akhil R S","email":"akhil@example.com","message":"Hello — this is a test message."}
+  </textarea
+    >
+    <br />
+    <button id="runBtn">Run</button>
+
+    <script>
+      // Named arrow function assigned to a const
+      const printMessage = (user) => {
+        // validate input
+        if (!user || typeof user !== "object")
+          throw new Error("Parsed value is not an object.");
+        if (typeof user.name !== "string" || user.name.trim() === "")
+          throw new Error('Missing or invalid "name" property.');
+        // the required output
+        console.log(`Message received from ${user.name}`);
+      };
+
+      document.getElementById("runBtn").addEventListener("click", () => {
+        const jsonText = document.getElementById("jsonInput").value;
+        try {
+          // Convert JSON text to JS object
+          const obj = JSON.parse(jsonText);
+
+          // Try to print the message
+          printMessage(obj);
+
+          // Optional: also show the parsed object for debugging
+          console.log("Parsed object:", obj);
+        } catch (err) {
+          // Any parsing or runtime errors are caught here
+          console.error("Error parsing JSON or printing message:", err.message);
+        }
+      });
+
+      // Auto-run once on page load so console shows something immediately.
+      // Comment out the next line if you prefer to run only via the button.
+      document.getElementById("runBtn").click();
+    </script>
+  </body>
+</html>

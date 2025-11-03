@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>User Feedback Checker</title>
+  </head>
+  <body>
+    <h3>User Feedback Checker</h3>
+    <p>Enter feedback JSON below and click "Check Feedback".</p>
+
+    <textarea id="jsonInput" rows="6" cols="70">
+{"name":"Akhil R S","email":"akhil@example.com","feedback":"Thank you for your quick response!"}
+  </textarea
+    >
+    <br />
+    <button id="checkBtn">Check Feedback</button>
+
+    <script>
+      // Named arrow function to check for "thank" in feedback
+      const checkFeedback = (user) => {
+        if (!user || typeof user.feedback !== "string") {
+          throw new Error("Invalid or missing 'feedback' field.");
+        }
+
+        // Case-insensitive search for "thank"
+        if (user.feedback.toLowerCase().includes("thank")) {
+          console.log("Positive feedback received");
+        } else {
+          console.log("Feedback noted");
+        }
+      };
+
+      document.getElementById("checkBtn").addEventListener("click", () => {
+        const jsonText = document.getElementById("jsonInput").value;
+
+        try {
+          // Convert JSON string into JS object
+          const userFeedback = JSON.parse(jsonText);
+
+          // Check the feedback content
+          checkFeedback(userFeedback);
+        } catch (error) {
+          console.error(
+            "Error: Invalid JSON format or data issue ->",
+            error.message
+          );
+        }
+      });
+    </script>
+  </body>
+</html>
