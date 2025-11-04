@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Feedback Page</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 40px;
+      }
+      h2 {
+        color: #333;
+      }
+      #confirmation {
+        color: green;
+        font-weight: bold;
+        margin-top: 10px;
+        display: none;
+      }
+      #feedbackDisplay {
+        margin-top: 20px;
+        padding: 10px;
+        border: 1px solid #ccc;
+        width: 300px;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>Feedback Form</h2>
+    <form id="feedbackForm">
+      <label for="name">Name:</label><br />
+      <input type="text" id="name" required /><br /><br />
+
+      <label for="feedback">Feedback:</label><br />
+      <textarea id="feedback" rows="4" cols="35" required></textarea
+      ><br /><br />
+
+      <button type="submit">Submit</button>
+    </form>
+
+    <div id="confirmation">Thanks for your feedback!</div>
+
+    <div id="feedbackDisplay"></div>
+
+    <script>
+      const form = document.getElementById("feedbackForm");
+      const confirmation = document.getElementById("confirmation");
+      const feedbackDisplay = document.getElementById("feedbackDisplay");
+
+      form.addEventListener("submit", function (event) {
+        event.preventDefault(); // Prevent page refresh
+
+        const name = document.getElementById("name").value;
+        const feedback = document.getElementById("feedback").value;
+
+        // Display feedback
+        feedbackDisplay.innerHTML = `<strong>${name}</strong>: ${feedback}`;
+
+        // Show confirmation message
+        confirmation.style.display = "block";
+
+        // Hide confirmation after 5 seconds
+        setTimeout(() => {
+          confirmation.style.display = "none";
+        }, 5000);
+
+        // Clear form fields
+        form.reset();
+      });
+
+      // Change text color on hover
+      feedbackDisplay.addEventListener("mouseover", () => {
+        feedbackDisplay.style.color = "blue";
+      });
+      feedbackDisplay.addEventListener("mouseout", () => {
+        feedbackDisplay.style.color = "black";
+      });
+    </script>
+  </body>
+</html>

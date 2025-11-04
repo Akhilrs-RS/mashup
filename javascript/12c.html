@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Text Display Page</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 40px;
+      }
+      p {
+        color: blue;
+        font-size: 18px;
+        margin-top: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>Enter Text Below</h2>
+    <form id="textForm">
+      <input
+        type="text"
+        id="userText"
+        placeholder="Type something..."
+        required
+      />
+      <button type="submit">Submit</button>
+    </form>
+
+    <p id="displayText"></p>
+
+    <script>
+      const form = document.getElementById("textForm");
+      const displayText = document.getElementById("displayText");
+
+      form.addEventListener("submit", function (event) {
+        event.preventDefault();
+        const text = document.getElementById("userText").value;
+        displayText.textContent = text;
+        displayText.style.color = "blue";
+        form.reset();
+      });
+
+      displayText.addEventListener("mouseover", function () {
+        displayText.style.color = "green";
+      });
+
+      displayText.addEventListener("mouseout", function () {
+        displayText.style.color = "blue";
+      });
+    </script>
+  </body>
+</html>
