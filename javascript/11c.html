@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Book Class Example</title>
+  </head>
+  <body>
+    <h3>Book Information System</h3>
+    <p>Open the console .</p>
+
+    <script>
+      class Book {
+        constructor(title, author, price) {
+          this._title = title;
+          this._author = author;
+          this._price = price;
+        }
+
+        getTitle() {
+          return this._title;
+        }
+
+        getAuthor() {
+          return this._author;
+        }
+
+        setPrice(newPrice) {
+          if (typeof newPrice === "number" && newPrice > 0) {
+            this._price = newPrice;
+            console.log(`Price updated successfully to ₹${newPrice}`);
+          } else {
+            console.log(`Invalid price: ${newPrice}. Price not updated.`);
+          }
+        }
+
+        displayDetails() {
+          console.log(`Book Details:
+        Title: ${this._title}
+        Author: ${this._author}
+        Price: ₹${this._price}`);
+        }
+      }
+
+      const myBook = new Book("The Alchemist", "Paulo Coelho", 450);
+
+      myBook.setPrice(-100);
+      myBook.setPrice("300");
+      myBook.setPrice(500);
+
+      myBook.displayDetails();
+    </script>
+  </body>
+</html>

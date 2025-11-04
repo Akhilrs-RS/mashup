@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>User System Example</title>
+  </head>
+  <body>
+    <h3>Basic User System</h3>
+    <p>Open the console.</p>
+
+    <script>
+      class User {
+        constructor(name, age, email) {
+          this.name = name;
+          this.age = age;
+          this.email = email;
+        }
+
+        getName() {
+          return this.name;
+        }
+
+        getAge() {
+          return this.age;
+        }
+
+        setEmail(newEmail) {
+          if (typeof newEmail === "string" && newEmail.includes("@")) {
+            this.email = newEmail;
+            console.log(`Email updated successfully to: ${this.email}`);
+          } else {
+            console.log(`Invalid email: "${newEmail}". Email not updated.`);
+          }
+        }
+
+        displayDetails() {
+          console.log(`User Details:
+        Name: ${this.getName()}
+        Age: ${this.getAge()}
+        Email: ${this.email}`);
+        }
+      }
+
+      const user1 = new User("Akhil R S", 25, "akhil@example.com");
+
+      user1.setEmail("akhil.example.com");
+      user1.setEmail("akhilrs@gmail.com");
+
+      user1.displayDetails();
+    </script>
+  </body>
+</html>
