@@ -1,0 +1,22 @@
+file_name = "students.txt"
+
+try:
+    with open(file_name, "r") as file:
+        print("Existing student names:")
+        for line in file:
+            print(line.strip())
+except FileNotFoundError:
+    print("No existing file found. A new file will be created.")
+
+n = int(input("\nHow many student names do you want to add? "))
+
+with open(file_name, "a") as file:
+    for i in range(n):
+        name = input(f"Enter student name {i+1}: ")
+        file.write(name + "\n")
+
+print("\nUpdated list of student names:")
+
+with open(file_name, "r") as file:
+    for line in file:
+        print(line.strip())
